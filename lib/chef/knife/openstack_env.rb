@@ -1,3 +1,14 @@
+require 'chef/knife'
+
+class Chef
+  class Knife
+    module OpenstackEnv
+      # Don't really need to do anything here. The purpose of this gem is entirely to
+      # override existing behaviour (so long as --pass-openstack-environment is true).
+    end
+  end
+end
+
 # Grab the --pass-openstack-environment option from the command line if it's there,
 # and set that on Chef::Config[:knife] so that we can access it in our redefinition
 # of Net::SSH.configuration_for below.
